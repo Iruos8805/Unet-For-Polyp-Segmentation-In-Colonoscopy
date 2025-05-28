@@ -48,8 +48,8 @@ The model used in this project is trained on 'Kvasir-SEG Dataset'. The dataset c
 
 ## Training/Inference code and Performance visualisation
 
-Refer the notebook for the final training, testing and visualisation : [UNET-FOR-POLYP-SEGMENTATION.ipynb](UNET-FOR-POLYP-SEGMENTATION.ipynb)
-Refert the notebook for the wandb integration and sweep results (only the specific section of code is provided : [UNET-FOR-POLYP-SEGMENTATION.ipynb](UNET-FOR-POLYP-SEGMENTATION.ipynb)
+- Refer the notebook for the final training, testing and visualisation : [UNET-FOR-POLYP-SEGMENTATION.ipynb](UNET-FOR-POLYP-SEGMENTATION.ipynb)
+- Refert the notebook for the wandb integration and sweep results (only the specific section of code is provided : [WANDB-FOR-POLYP-SEGMENTATION.ipynb](WANDB-FOR-POLYP-SEGMENTATION.ipynb)
 
 <br>
 
