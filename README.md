@@ -91,6 +91,7 @@ The model used in this project is trained on 'Kvasir-SEG Dataset'. The dataset c
     - Unet model from scratch with efficientb4 as encoder [Second best approach]
     - Unet model from smp library [Best approach]       
 - WandB sweep result :
+    - The validation range is jittery due to the small batch_size, small validation data size and small difference betwen the losses.    
     - ![Input](images/runs.png)
     - ![Input](images/run_table.png)
 - The following is the plot of train and validation Dice loss across epochs in Best approach :
