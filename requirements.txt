@@ -1,11 +1,26 @@
-torch>=1.10.0
-torchvision>=0.11.1
-segmentation-models-pytorch[all]
-albumentations>=1.3.0
-Pillow
-numpy
+dataset.py : Defines a CustomDataset class for loading and preprocessing image-mask pairs for segmentation tasks using PyTorch.
+main.py : Main script to run either a standard training/testing pipeline or initiate a Weights & Biases sweep for model training.
+metrics.py : Provides functions to compute IoU and Dice scores for evaluating segmentation model performance.
+test.py : Defines the testing function for a segmentation model, computing average IoU and Dice scores using a validation transform.
+train_val.py : Implements training and validation loops for UNet-based segmentation models using Dice loss, LR scheduler, and Weights & Biases integration.
+transform.py : Defines training and validation data augmentation pipelines using Albumentations for image preprocessing and tensor conversion.
+unet.py : Implements a full U-Net architecture from scratch in PyTorch for semantic segmentation.
+unet_b4.py : Defines a U-Net segmentation model using a pretrained EfficientNet-B4 encoder from the timm library for feature extraction.
+unet_smp.py : Initializes a segmentation model using the segmentation_models_pytorch (SMP) library with an EfficientNet-B4 encoder.
+utils.py : Plots a few examples of model predictions alongside the original image and ground truth mask.
+wandb_setup.py : Performs U-Net training with EfficientNet-B4 encoder and wandb sweep tracking.
+wandb_sweep.py : Defines a W&B sweep with Bayesian optimization to tune learning rate and optimizer.
+
+
+torch>=1.12
+torchvision
+timm
+segmentation-models-pytorch
+albumentations
+opencv-python
 scikit-learn
-wandb>=0.15.0
-torchmetrics>=0.11.0
 matplotlib
+wandb
+numpy
+Pillow
 
