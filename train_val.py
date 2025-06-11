@@ -32,11 +32,11 @@ def train():
     # #Using normal Unet from scratch
     # model = UNet().to(device)
 
-    #Using Unet from scratch with efficientb4 as encoder
-    model = UNetEfficientNetB4().to(device)
+    # #Using Unet from scratch with efficientb4 as encoder
+    # model = UNetEfficientNetB4().to(device)
 
-    # # Using Pre-exisitng Unet model from smp
-    # model = model_smp.to(device)
+    # Using Pre-exisitng Unet model from smp
+    model = model_smp.to(device)
 
     #------------------------------------------------
 

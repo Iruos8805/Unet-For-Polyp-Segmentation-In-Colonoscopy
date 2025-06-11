@@ -8,6 +8,7 @@ from unet import *
 from dataset import *
 from transform import train_transform, val_transform
 from unet_b4 import *
+from unet_smp import *
 
 def wandb_train():
     with wandb.init() as run:
@@ -33,11 +34,11 @@ def wandb_train():
         # #Using normal Unet from scratch (uncomment to use this)
         # model = UNet().to(device)
 
-        #Using Unet from scratch with efficientb4 as encoder (uncomment to use this)
-        model = UNetEfficientNetB4().to(device)
+        # #Using Unet from scratch with efficientb4 as encoder (uncomment to use this)
+        # model = UNetEfficientNetB4().to(device)
 
-        # # Using Pre-exisitng Unet model from smp (uncomment to use this)
-        # model = model_smp.to(device)
+        # Using Pre-exisitng Unet model from smp (uncomment to use this)
+        model = model_smp.to(device)
 
         #------------------------------------------------
 
