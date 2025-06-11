@@ -61,9 +61,9 @@ The final hyperparameters and other parameters used are :
 - in_channels : 3
 - classes : 1
 - batch_size : 8
-- optimizer : AdamW
+- optimizer : Adam
 - learning_rate : 0.0001
-- epochs : 11
+- epochs : 20
   
 On final testing, the model gave a performance score of 0.8137 (IoU) and 0.8833 (Dice).
 
