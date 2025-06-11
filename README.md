@@ -36,6 +36,35 @@ To run this project, you need to have Python installed. We recommend using a vir
 
 <br>
 
+## Usage
+
+1.  **Run main.py in the following manner to train and test the model normally**:
+    ```sh
+    python3 main.py normal
+    ```
+2. **Run main.py in the following manner to train the model by tuning hyperparameters using wanb sweep**:
+    ```sh
+    python3 main.py wandb
+    ```
+3. The following are the files and their purpose :
+   
+    - **dataset.py** : Defines a CustomDataset class for loading and preprocessing image-mask pairs for segmentation tasks using PyTorch.
+    - **main.py** : Main script to run either a standard training/testing pipeline or initiate a Weights & Biases sweep for model training.
+    - **metrics.py** : Provides functions to compute IoU and Dice scores for evaluating segmentation model performance.
+    - **test.py** : Defines the testing function for a segmentation model, computing average IoU and Dice scores using a validation transform.
+    - **train_val.py** : Implements training and validation loops for UNet-based segmentation models using Dice loss, LR scheduler, and Weights & Biases integration.
+    - **transform.py** : Defines training and validation data augmentation pipelines using Albumentations for image preprocessing and tensor conversion.
+    - **unet.py** : Implements a full U-Net architecture from scratch in PyTorch for semantic segmentation.
+    - **unet_b4.py** : Defines a U-Net segmentation model using a pretrained EfficientNet-B4 encoder from the timm library for feature extraction.
+    - **unet_smp.py** : Initializes a segmentation model using the segmentation_models_pytorch (SMP) library with an EfficientNet-B4 encoder.
+    - **utils.py** : Plots a few examples of model predictions alongside the original image and ground truth mask.
+    - **wandb_setup.py** : Performs U-Net training with EfficientNet-B4 encoder and wandb sweep tracking.
+    - **wandb_sweep.py** : Defines a W&B sweep with Bayesian optimization to tune learning rate and optimizer.
+
+
+
+<br>
+
 ## Dataset Information
 The model used in this project is trained on 'Kvasir-SEG Dataset'. The dataset contains 1000 polyp images and their corresponding ground truth from the Kvasir Dataset v2. The images and its corresponding masks are stored in two separate folders with the same filename. 
 
@@ -43,6 +72,9 @@ The model used in this project is trained on 'Kvasir-SEG Dataset'. The dataset c
 - **Task** : Polyp Identification in colonoscopy imaged (Identify and mask the polyp from the image).
 - **Data** : 1000 captcha polyp images with resolution varying from 332x487 to 1920x1072.
 - **Masks** : The images and its corresponding masks are stored in two separate folders with the same filename.
+- **Example** : The following are examples for the data image and mask. Not that the files are named the same though in seperate folders.
+- ![Input](images/data.png)
+- ![Input](images/mask.png)
 
 <br>
 
