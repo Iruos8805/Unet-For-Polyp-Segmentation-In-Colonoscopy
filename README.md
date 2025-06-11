@@ -73,8 +73,8 @@ The model used in this project is trained on 'Kvasir-SEG Dataset'. The dataset c
 - **Data** : 1000 captcha polyp images with resolution varying from 332x487 to 1920x1072.
 - **Masks** : The images and its corresponding masks are stored in two separate folders with the same filename.
 - **Example** : The following are examples for the data image and mask. Not that the files are named the same though in seperate folders.
-- ![Input](images/data.png)
-- ![Input](images/mask.png)
+- <img src="images/data.png" alt="Input" width="300"/>
+- <img src="images/label.png" alt="Input" width="300"/>
 
 <br>
 
