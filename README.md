@@ -114,6 +114,7 @@ The final hyperparameters and other parameters used are :
 - optimizer : Adam
 - learning_rate : 0.0001
 - epochs : 15
+  
     - On final testing, the Unet model from smp library with the above paramters gave a performance score of 0.7910 (IoU) and 0.8644 (Dice) [Best approach].
     - On final testing, the Unet model from scratch with efficientb4 model gave a performance score of 0.772 (IoU) and 0.8520 (Dice). [Seocnd best approach]
     - On final testing, the Unet model from scratch gave a very poor performance that renders it futile to even consider it.
