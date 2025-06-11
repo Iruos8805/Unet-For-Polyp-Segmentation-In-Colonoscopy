@@ -6,6 +6,7 @@ Includes a Unet implmentation for polyp segmentation in colonoscopy.
 ## Table of Contents
 
 - [Installation](#installation)
+- [Usage](#usage)
 - [Dataset Information](#dataset-information)
 - [Training/Inference code and Performance visualisation](#traininginference-code-and-performance-visualisation)
 - [About the Model](#about-the-model)
@@ -114,7 +115,7 @@ The final hyperparameters and other parameters used are :
 - epochs : 20
     - On final testing, the Unet model from smp library with the above paramters gave a performance score of 0.7910 (IoU) and 0.8644 (Dice) [Best approach].
     - On final testing, the Unet model from scratch with efficientb4 model gave a performance score of 0.772 (IoU) and 0.8520 (Dice). [Seocnd best approach]
-    - On final testing, the Unet model from scratch with efficientb4 model gave a performance score of 0.772 (IoU) and 0.8520 (Dice).
+    - On final testing, the Unet model from scratch gave a very poor performance that renders it futile to even consider it.
  
 
 <br>
