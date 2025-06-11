@@ -50,16 +50,27 @@ To run this project, you need to have Python installed. We recommend using a vir
 3. The following are the files and their purpose :
    
     - **dataset.py** : Defines a CustomDataset class for loading and preprocessing image-mask pairs for segmentation tasks using PyTorch.
+      
     - **main.py** : Main script to run either a standard training/testing pipeline or initiate a Weights & Biases sweep for model training.
+      
     - **metrics.py** : Provides functions to compute IoU and Dice scores for evaluating segmentation model performance.
+      
     - **test.py** : Defines the testing function for a segmentation model, computing average IoU and Dice scores using a validation transform.
+      
     - **train_val.py** : Implements training and validation loops for UNet-based segmentation models using Dice loss, LR scheduler, and Weights & Biases integration.
+      
     - **transform.py** : Defines training and validation data augmentation pipelines using Albumentations for image preprocessing and tensor conversion.
+      
     - **unet.py** : Implements a full U-Net architecture from scratch in PyTorch for semantic segmentation.
+      
     - **unet_b4.py** : Defines a U-Net segmentation model using a pretrained EfficientNet-B4 encoder from the timm library for feature extraction.
+      
     - **unet_smp.py** : Initializes a segmentation model using the segmentation_models_pytorch (SMP) library with an EfficientNet-B4 encoder.
+      
     - **utils.py** : Plots a few examples of model predictions alongside the original image and ground truth mask.
+      
     - **wandb_setup.py** : Performs U-Net training with EfficientNet-B4 encoder and wandb sweep tracking.
+      
     - **wandb_sweep.py** : Defines a W&B sweep with Bayesian optimization to tune learning rate and optimizer.
 
 
@@ -116,7 +127,9 @@ The final hyperparameters and other parameters used are :
 - epochs : 15
   
     - On final testing, the Unet model from smp library with the above paramters gave a performance score of 0.7910 (IoU) and 0.8644 (Dice) [Best approach].
+      
     - On final testing, the Unet model from scratch with efficientb4 model gave a performance score of 0.772 (IoU) and 0.8520 (Dice). [Seocnd best approach]
+      
     - On final testing, the Unet model from scratch gave a very poor performance that renders it futile to even consider it.
  
 
