@@ -14,7 +14,7 @@ import torch.nn.functional as F
 from unet_smp import *
 
 def train():
-    
+
     # pre-train setup
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -29,15 +29,13 @@ def train():
 
     #-----------------------------------------------
 
-    #Uncomment the model you want to use while commenting others to use your desired type of model.
-
-    # #Using normal Unet from scratch (uncomment to use this)
+    # #Using normal Unet from scratch
     # model = UNet().to(device)
 
-    #Using Unet from scratch with efficientb4 as encoder (uncomment to use this)
+    #Using Unet from scratch with efficientb4 as encoder
     model = UNetEfficientNetB4().to(device)
 
-    # # Using Pre-exisitng Unet model from smp (uncomment to use this)
+    # # Using Pre-exisitng Unet model from smp
     # model = model_smp.to(device)
 
     #------------------------------------------------
@@ -51,9 +49,12 @@ def train():
         factor=0.5,
         patience=3,
         threshold=0.5,
-        threshold_mode='abs',
+        threshold_mode='abs',  # because threshold is absolute here
         verbose=True
     )
+
+    train_dice_losses = []
+    val_dice_losses = []
 
     for epoch in range(20):
         # train loop
@@ -67,7 +68,7 @@ def train():
             optimizer.zero_grad()
             outputs = torch.sigmoid(model(batch_features))
 
-            # Fixing spatial dimension mismatch - if any
+            # Fix spatial dimension mismatch
             if outputs.shape[-2:] != batch_labels.shape[-2:]:
                 outputs = F.interpolate(outputs, size=batch_labels.shape[-2:], mode='bilinear', align_corners=False)
 
@@ -77,6 +78,7 @@ def train():
             total_loss += loss.item()
 
         avg_loss = total_loss / len(train_loader)
+        train_dice_losses.append(avg_loss)
 
         # val loop
         model.eval()
@@ -97,8 +99,10 @@ def train():
 
 
         avg_val_loss = val_loss / len(val_loader)
+        val_dice_losses.append(avg_val_loss)
         scheduler.step(avg_val_loss)
 
         print(f"Epoch {epoch+1} | Train Loss: {avg_loss:.4f} | Val Loss: {avg_val_loss:.4f}")
 
-    return model, device, X_test, y_test
+    return model, device, X_test, y_test, train_dice_losses, val_dice_losses
+

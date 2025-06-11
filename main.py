@@ -1,7 +1,7 @@
 import sys
 from train_val import train
 from test import test
-from utils import visualize_predictions
+from utils import *
 
 def run_sweep_mode():
     from wandb_setup import start_sweep
@@ -12,7 +12,9 @@ def run_sweep_mode():
 def run_standard_mode():
     print("Running standard pipeline...")
 
-    model, device, X_test, y_test = train()
+    model, device, X_test, y_test, train_dice_losses, val_dice_losses = train()
+
+    plot_dice_loss_curves(train_dice_losses, val_dice_losses)
 
     test(model, device, X_test, y_test)
 
@@ -31,3 +33,4 @@ if __name__ == "__main__":
     else:
         print("Invalid option. Use 'wandb' or 'normal'.")
         sys.exit(1)
+

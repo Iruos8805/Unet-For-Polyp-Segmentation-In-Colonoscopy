@@ -54,3 +54,16 @@ def visualize_predictions(model, device, X_test, y_test, num_samples_to_plot=5):
 
             if count >= num_samples_to_plot:
                 break
+
+def plot_dice_loss_curves(train_dice_losses, val_dice_losses):
+    plt.figure(figsize=(8, 5))
+    plt.plot(train_dice_losses, label='Train Dice Loss', marker='o')
+    plt.plot(val_dice_losses, label='Val Dice Loss', marker='s')
+    plt.xlabel("Epoch")
+    plt.ylabel("Dice Loss")
+    plt.title("Training and Validation Dice Loss")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
